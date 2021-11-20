@@ -6,7 +6,7 @@ class Produto:
 
     def __init__(self: object, name: str, price: float) -> None:
         self.__code: int = Produto.counter
-        self.__name: str = name
+        self.__name: str = name.title()
         self.__price: float = price
         Produto.counter += 1
 
@@ -23,7 +23,7 @@ class Produto:
         return self.__price
 
     def __str__(self) -> str:
-        return f'Código: {self.code} \n' \
-               f'Nome: {self.name} \n' \
-               f'Preço: {formata(self.price)} \n'
+        return f'Product Code: {self.code} \n' \
+               f'Product Name: {self.name} \n' \
+               f'Product Price: {formata(self.price)} \n'
 

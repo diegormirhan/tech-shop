@@ -2,10 +2,10 @@ import time
 from typing import List, Dict
 from time import sleep
 from models.product import Produto
-from utils.helper import formata_float_str_moeda
+from utils.helper import formata_float_str_moeda as formata
 
-products: List[Produto] = []
-cart: List[Dict[Produto, int]] = []
+products_list: List[Produto] = []
+products_cart: List[Dict[Produto, int]] = []
 
 
 def menu() -> None:
@@ -44,11 +44,35 @@ def menu() -> None:
 
 
 def register_product() -> None:
-    pass
+    print('========= Register Product =========\n'
+          '====================================')
+
+    product_name: str = input('Enter the product name: ')
+    product_price: float = float(input('Enter the product price: '))
+
+    product: Produto = Produto(product_name, product_price)
+    products_list.append(product)
+
+    time.sleep(1)
+    print(f'The product {product.name} has been succesfully registered!\n')
+
+    time.sleep(2)
+    menu()
 
 
 def list_products() -> None:
-    pass
+    if len(products_list) > 0:
+        print('========== List Products ===========\n'
+              '====================================')
+
+        for products in products_list:
+            print(products)
+            time.sleep(1)
+    else:
+        print("There're no registered products!")
+
+    time.sleep(2)
+    menu()
 
 
 def buy_product() -> None:
@@ -60,11 +84,34 @@ def view_cart() -> None:
 
 
 def close_order() -> None:
-    pass
+    if len(products_cart) > 0:
+        amount: float = 0
+
+        print('========== Cart Products ===========\n'
+              '====================================')
+
+        for item in products_cart:
+            for data in item.items():
+                print(f'{data[0]} -> Quantity: {data[1]}\n')
+                amount += data[0].price * data[1]
+                time.sleep(1)
+        print(f"Your bill's {formata(amount)}")
+        products_cart.clear()
+        sleep(3)
+    else:
+        print("There're no products in the cart!")
+
+    time.sleep(2)
+    menu()
 
 
 def get_product_by_code(code: int) -> None:
-    pass
+    p: Produto = None
+
+    for product in products_list:
+        if product.code == code:
+            p = product
+    return p
 
 
 def main() -> None:
