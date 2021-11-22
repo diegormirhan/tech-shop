@@ -39,12 +39,12 @@ def menu() -> None:
         exit()
     else:
         print('Unrecognized command... Returning to menu')
-        time.sleep(2)
+        sleep(2)
         menu()
 
 
 def register_product() -> None:
-    print('========= Register Product =========\n'
+    print('======== Register Product ==========\n'
           '====================================')
 
     product_name: str = input('Enter the product name: ')
@@ -53,10 +53,10 @@ def register_product() -> None:
     product: Produto = Produto(product_name, product_price)
     products_list.append(product)
 
-    time.sleep(1)
+    sleep(1)
     print(f'The product {product.name} has been succesfully registered!\n')
 
-    time.sleep(2)
+    sleep(2)
     menu()
 
 
@@ -67,20 +67,70 @@ def list_products() -> None:
 
         for products in products_list:
             print(products)
-            time.sleep(1)
+            sleep(1)
     else:
         print("There're no registered products!")
 
-    time.sleep(2)
+    sleep(2)
     menu()
 
 
 def buy_product() -> None:
-    pass
+    if len(products_list) > 0:
+        print('======== Avaliable Products ========\n'
+              '====================================')
+        for product in products_list:
+            print(f'{product}'
+                  f'----------------')
+            sleep(1)
+
+        product_code: int = int(input('\nEnter the product code on the side: '))
+        product: Produto = get_product_by_code(product_code)
+
+        if product:
+            if len(products_cart) > 0:
+                have_in_the_cart: bool = False
+
+                for item in products_cart:
+                    quant: int = item.get(product)
+                    if quant:
+                        item[product] = quant + 1
+                        print(f'The product {product.name} now have {quant + 1} units in the cart.')
+                        have_in_the_cart = True
+
+                if not have_in_the_cart:
+                    prod = {product: 1}
+                    products_cart.append(prod)
+                    print(f"The product {product.name} has been added in the cart!")
+
+            else:
+                item = {product: 1}
+                products_cart.append(item)
+                print(f'The product {product.name} has been added in the cart.')
+        else:
+            print(f"The product code {product_code} doesn't exists!")
+
+    else:
+        print("There's no products to buy!")
+
+    sleep(2)
+    menu()
 
 
 def view_cart() -> None:
-    pass
+    if len(products_cart) > 0:
+        print('Products in the cart:')
+
+        for item in products_cart:
+            for data in item.items():
+                print(f'Name: {data[0]} | Units: {data[1]}\n'
+                      f'----------------------------------')
+                sleep(0.5)
+    else:
+        print("There's no products in the cart.")
+
+    sleep(2)
+    menu()
 
 
 def close_order() -> None:
@@ -94,14 +144,14 @@ def close_order() -> None:
             for data in item.items():
                 print(f'{data[0]} -> Quantity: {data[1]}\n')
                 amount += data[0].price * data[1]
-                time.sleep(1)
+                sleep(1)
         print(f"Your bill's {formata(amount)}")
         products_cart.clear()
         sleep(3)
     else:
         print("There're no products in the cart!")
 
-    time.sleep(2)
+    sleep(2)
     menu()
 
 
