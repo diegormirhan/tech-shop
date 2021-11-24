@@ -123,8 +123,9 @@ def view_cart() -> None:
 
         for item in products_cart:
             for data in item.items():
-                print(f'Name: {data[0]} | Units: {data[1]}\n'
-                      f'----------------------------------')
+                print(f'{data[0]}'
+                      f'Quantity: {data[1]}\n'
+                      f'-----------------------------------\n')
                 sleep(0.5)
     else:
         print("There's no products in the cart.")
@@ -142,7 +143,8 @@ def close_order() -> None:
 
         for item in products_cart:
             for data in item.items():
-                print(f'{data[0]} -> Quantity: {data[1]}\n')
+                print(f'{data[0]}'
+                      f'Quantity: {data[1]}\n')
                 amount += data[0].price * data[1]
                 sleep(1)
         print(f"Your bill's {formata(amount)}")
@@ -156,7 +158,7 @@ def close_order() -> None:
 
 
 def get_product_by_code(code: int) -> None:
-    p: Produto = None
+    p = None
 
     for product in products_list:
         if product.code == code:
