@@ -29,8 +29,6 @@ with GitHub Cli:
 ```
 $ gh repo clone diegormirhan/Python-Bank
 ```
-or downloading here: 
-<p href="url">https://github.com/diegormirhan/Python-Bank/releases/tag/v1.0.0</p>
 
 <br />
 
