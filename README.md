@@ -1,42 +1,29 @@
 ## Description
-#### Here's a Python Project that I made myself simulating a Bank System using Python 3.10.
-#### The project gives to you the possibility to create accounts, make deposits, withdraws, transferences and list all existing accounts registered.
-#### In addition, account registration relies on CPF validation, whether e-mail exists, and date of birth with verification that the user must be over 18 to create an account.
+**Tech Shop Management System**
 
-<br />
+This GitHub repository contains a Python script for a simple Tech Shop management system. The script utilizes command-line interaction to perform various tasks related to product registration, listing, purchasing, and order management. The system is organized into different functions to handle different aspects of the shop's operations.
 
-No Dependencies Needed 
+**Features:**
+- Register new products with names and prices.
+- List all registered products.
+- Purchase products and add them to the cart.
+- View the products currently in the cart.
+- Close the current order, calculating and displaying the total bill.
+- Gracefully exit the system.
 
-<br />
+**How to Use:**
+1. Run the script in a Python environment.
+2. The main menu will be displayed with numbered options.
+3. Choose from the options to perform different tasks such as registering products, listing products, buying products, viewing the cart, closing the order, and exiting the system.
+4. Follow the prompts and input the necessary information based on the chosen action.
 
+**Key Components:**
+- `models.product.Produto`: This module defines the `Produto` class, representing a product with attributes like name, price, and code.
+- `utils.helper.formata_float_str_moeda`: A utility function to format a floating-point value as a currency string.
+- `products_list`: A list to store registered products.
+- `products_cart`: A list of dictionaries to store products and their quantities in the cart.
 
----
-
-## How To Use
-
-### Installation
-
-You can install from source with:
-
-```
-$ git clone https://github.com/diegormirhan/py-market.git
-```
-with GitHub Cli:
-```
-$ gh repo clone diegormirhan/py-market
-```
-
-<br />
-
-### Run
-
-> Install all the python packages required on [Dependencies](#dependencies-needed).
-
-Open cmd in the root folder of the project and run with:
-
-```
-$ python market.py
-```
+The script is intended for educational purposes and provides a basic example of managing a shop's inventory and orders through the command line. It showcases concepts such as user input, data structures, loops, and modular programming. Users can explore, run, and modify the code according to their needs.
 
 <br />
 
