@@ -19,11 +19,11 @@ No Dependencies Needed
 You can install from source with:
 
 ```
-$ git clone https://github.com/python-telegram-bot/python-telegram-bot
+$ git clone https://github.com/diegormirhan/py-market.git
 ```
 with GitHub Cli:
 ```
-$ gh repo clone diegormirhan/Python-Bank
+$ gh repo clone diegormirhan/py-market
 ```
 
 <br />
@@ -35,7 +35,7 @@ $ gh repo clone diegormirhan/Python-Bank
 Open cmd in the root folder of the project and run with:
 
 ```
-$ python bank.py
+$ python market.py
 ```
 
 <br />
