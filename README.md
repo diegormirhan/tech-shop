@@ -5,11 +5,7 @@
 
 <br />
 
-### Dependencies Needed 
-
-- [Python 3.10.2](https://www.python.org/downloads/)
-- pip install validate_email
-- pip install validate-docbr
+No Dependencies Needed 
 
 <br />
 
